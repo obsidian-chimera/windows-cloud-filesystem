@@ -1,0 +1,24 @@
+# Local development isolation
+.worktrees/
+
+# rclone credentials / secrets
+rclone.conf
+*.token
+secrets/
+.env
+.env.*
+
+# Runtime data
+*.log
+cache/
+logs/
+
+# PowerShell / editor noise
+.vscode/
+.idea/
+*.tmp
+*.bak
+
+# OS metadata
+desktop.ini
+Thumbs.db

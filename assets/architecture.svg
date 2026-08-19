@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">Windows cloud filesystem architecture</title>
+  <desc id="desc">Windows applications access a mounted drive backed by rclone and WinFsp. A local VFS cache sits beside the Google Drive API. A Windows service is started after network readiness and the mount is restricted to SYSTEM and the selected user.</desc>
+  <defs>
+    <style>
+      .bg{fill:#ffffff}.box{fill:#f8fafc;stroke:#334155;stroke-width:2}.accent{fill:#eef2ff;stroke:#4338ca;stroke-width:2}.cloud{fill:#ecfeff;stroke:#0e7490;stroke-width:2}.secure{fill:#f0fdf4;stroke:#15803d;stroke-width:2}.txt{font-family:Arial,Helvetica,sans-serif;fill:#0f172a;font-size:24px}.small{font-family:Arial,Helvetica,sans-serif;fill:#475569;font-size:18px}.title{font-family:Arial,Helvetica,sans-serif;fill:#0f172a;font-size:34px;font-weight:700}.arrow{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#arrowhead)}
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+  </defs>
+  <rect class="bg" width="1200" height="780"/>
+  <text class="title" x="600" y="52" text-anchor="middle">Cloud-first Windows filesystem</text>
+
+  <rect class="box" x="330" y="85" width="540" height="80" rx="16"/>
+  <text class="txt" x="600" y="120" text-anchor="middle">Windows apps / optional Known Folders</text>
+  <text class="small" x="600" y="148" text-anchor="middle">Desktop · Documents · Pictures · Music · Videos</text>
+
+  <rect class="accent" x="405" y="215" width="390" height="82" rx="16"/>
+  <text class="txt" x="600" y="250" text-anchor="middle">Mounted drive (for example G:)</text>
+  <text class="small" x="600" y="278" text-anchor="middle">Native filesystem interface</text>
+
+  <rect class="accent" x="405" y="345" width="390" height="82" rx="16"/>
+  <text class="txt" x="600" y="380" text-anchor="middle">rclone + WinFsp</text>
+  <text class="small" x="600" y="408" text-anchor="middle">VFS translates cloud objects into file operations</text>
+
+  <rect class="box" x="90" y="485" width="390" height="105" rx="16"/>
+  <text class="txt" x="285" y="525" text-anchor="middle">50 GiB VFS cache</text>
+  <text class="small" x="285" y="556" text-anchor="middle">7d max age · 2s write-back target</text>
+
+  <rect class="cloud" x="720" y="485" width="390" height="105" rx="16"/>
+  <text class="txt" x="915" y="525" text-anchor="middle">Google Drive API</text>
+  <text class="small" x="915" y="556" text-anchor="middle">10s remote polling target</text>
+
+  <rect class="box" x="90" y="640" width="300" height="76" rx="14"/>
+  <text class="txt" x="240" y="674" text-anchor="middle">Windows service</text>
+  <text class="small" x="240" y="701" text-anchor="middle">runs as SYSTEM</text>
+
+  <rect class="box" x="450" y="640" width="300" height="76" rx="14"/>
+  <text class="txt" x="600" y="674" text-anchor="middle">Network-aware startup</text>
+  <text class="small" x="600" y="701" text-anchor="middle">DNS + HTTPS readiness barrier</text>
+
+  <rect class="secure" x="810" y="640" width="300" height="76" rx="14"/>
+  <text class="txt" x="960" y="674" text-anchor="middle">SYSTEM + user ACL</text>
+  <text class="small" x="960" y="701" text-anchor="middle">protected local mount access</text>
+
+  <path class="arrow" d="M600 165 L600 215"/>
+  <path class="arrow" d="M600 297 L600 345"/>
+  <path class="arrow" d="M525 427 L340 485"/>
+  <path class="arrow" d="M675 427 L860 485"/>
+  <path class="arrow" d="M915 590 L915 620"/>
+  <path class="arrow" d="M390 678 L440 678"/>
+  <path class="arrow" d="M750 678 L800 678"/>
+  <path class="arrow" d="M240 640 C240 600 520 590 520 430"/>
+
+  <text class="small" x="1115" y="620" text-anchor="end">Phone / web ↔ cloud</text>
+  <text class="small" x="600" y="758" text-anchor="middle">Timing is configuration/observed behaviour, not a real-time SLA.</text>
+</svg>
