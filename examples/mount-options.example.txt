@@ -1,0 +1,10 @@
+--vfs-cache-mode full
+--vfs-cache-max-size 50G
+--vfs-cache-max-age 7d
+--vfs-write-back 2s
+--dir-cache-time 24h
+--poll-interval 10s
+--exclude desktop.ini
+--exclude Thumbs.db
+--ignore-case
+--volname "Google Drive"
